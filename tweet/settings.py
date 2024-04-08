@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users",
     "tweets",
+    "bootstrap4",
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
@@ -55,10 +56,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "tweet.urls"
 
+import os
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ], # new
+
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -70,6 +74,9 @@ TEMPLATES = [
         },
     },
 ]
+
+BOOTSTRAP4 = { 'include_jquery': True } # new
+
 
 WSGI_APPLICATION = "tweet.wsgi.application"
 
