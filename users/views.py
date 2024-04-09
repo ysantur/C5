@@ -6,6 +6,7 @@ from .models import CustomUser
 from django.contrib.auth.views import PasswordChangeView, PasswordResetView
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin # new
 
 
 def logout_view(request):
@@ -14,8 +15,9 @@ def logout_view(request):
 
 class SignUpView(generic.CreateView):
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home')
     template_name = 'registration/signup.html'
+    success_message = 'Account was created successfully.' # new
 
 class UserUpdateView(generic.UpdateView):
     form_class = CustomUserChangeForm

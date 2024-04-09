@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "tweets",
     "bootstrap4",
     "bootstrap_datepicker_plus",
+    "rest_framework",
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
