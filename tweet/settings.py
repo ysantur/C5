@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "users",
     "tweets",
     "bootstrap4",
+    "bootstrap_datepicker_plus",
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
@@ -76,7 +77,8 @@ TEMPLATES = [
 ]
 
 BOOTSTRAP4 = { 'include_jquery': True } # new
-
+LOGIN_REDIRECT_URL = 'home' # new
+LOGOUT_REDIRECT_URL = 'home' # new
 
 WSGI_APPLICATION = "tweet.wsgi.application"
 
@@ -100,8 +102,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", "OPTIONS": {'min_length': 3}
+    }, 
     {
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
